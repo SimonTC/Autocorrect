@@ -20,5 +20,5 @@ class LaplaceUnigramLanguageModel:
     for token in sentence:
       count = self.unigramCounts[token]
       score += math.log(count + 1) #Smoothing by adding 1
-      score -= math.log(self.total * 2) #Smoothing by adding the corus again
+      score -= math.log(self.total + len(self.unigramCounts) ) #Smoothing by adding vocabulary (number of word types)
     return score
