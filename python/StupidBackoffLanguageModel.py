@@ -40,7 +40,7 @@ class StupidBackoffLanguageModel:
               score -= math.log(count_uni) 
           else:
               score += math.log(0.4)
-              score += math.log(count_uni + 1)   
+              score += math.log(self.unigramCounts[token] + 1)   
               score -= math.log(self.total + len(self.unigramCounts) ) 
               
       token_before = token
